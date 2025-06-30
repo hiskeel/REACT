@@ -2,7 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import ArtistCard from './components/ArtistCard'
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './components/Home'
+import NoPage from './components/Nopage'
+import Layout from './components/layout'
+import Biography from './components/biography'
+import W from './components/Works'
+
 function App() {
   const [count, setCount] = useState(0)
   const [artist, setArtists] = useState(
@@ -18,10 +25,18 @@ function App() {
     })
 
   return (
-    <>
-      <h1>Artists</h1>
-      <ArtistCard name={artist.name} surname={artist.surname} birthday={artist.birthday} death={artist.death} works={artist.works} />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home name={artist.name} surname={artist.surname} birthday={artist.birthday} death={artist.death} works={artist.works} />} />
+          <Route path="/biography" element={<Biography />} />
+          <Route path="/works" element={<W />} />
+
+          <Route path="*" element={<NoPage />} />
+
+        </Route>
+      </Routes>
+    </BrowserRouter>
 
   )
 }
