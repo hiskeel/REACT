@@ -10,6 +10,7 @@ export default function Layout() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/biography">Biography</Link></li>
                         <li><Link to="/works">Works</Link></li>
+                        <li><Link to="/createFeedback">Create Feedback</Link></li>
 
                     </ul>
                 </nav>
