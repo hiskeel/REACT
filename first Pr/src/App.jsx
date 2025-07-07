@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -11,6 +10,9 @@ import Layout from './components/layout'
 import Biography from './components/biography'
 import W from './components/Works'
 import CreateFeedback from './components/CreateFeedback'
+import CreateTask from './components/CreateTask'
+import ToDoList from './components/ToDoList'
+import { toDoList } from './contexts/taskList.context'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,6 +36,8 @@ function App() {
           <Route path="/biography" element={<Biography />} />
           <Route path="/createFeedback" element={<CreateFeedback />} />
           <Route path="/works" element={<W />} />
+          <Route path="/createTask" element={<CreateTask />} />
+          <Route path="/toDoList" element={<ToDoList tasksList={toDoList} />} />
 
           <Route path="*" element={<NoPage />} />
 
